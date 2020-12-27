@@ -1,0 +1,12 @@
+.Login {
+	padding: 60px 0;
+	border-radius: 20px;
+	box-shadow: 2px 2px 35px 2px #708ae8;
+	max-width: 50%;
+	margin: 10% auto;
+}
+
+.Login form {
+	margin: 0 auto;
+	max-width: 320px;
+}

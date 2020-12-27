@@ -1,6 +1,12 @@
 import { Form, Button } from "react-bootstrap";
-
 import logo from "./images/logo.png";
+import axios from "axios";
+
+const scopes =
+	"email,read_logged_time,write_logged_time,read_stats,read_orgs,read_private_leaderboards,write_private_leaderboards";
+const redirect_uri = "http://localhost:3000/authorize";
+const wakaUrl =
+	"https://wakatime.com/oauth/authorize?response_type=code&client_id=";
 
 const loginForm = {
 	borderRadius: "15px",
@@ -24,14 +30,20 @@ const logoStyle = {
 
 function Home() {
 	const handleClick = () => {
-		var appId = document.getElementById("appId").value;
-		//var appSecret = document.getElementById("appSecret").value;
-		var localUrl = "http://localhost:3000/authorize";
-		var wakaUrl =
-			"https://wakatime.com/oauth/authorize?response_type=code&client_id=";
-		var scopes = "email,read_logged_time,read_stats,read_orgs";
-		wakaUrl += appId + "&redirect_uri=" + localUrl + "&scope=" + scopes;
-		window.open(wakaUrl, "_blank");
+		var client_id = document.getElementById("appId").value;
+		var client_secret = document.getElementById("appSecret").value;
+		var authorizeUrl = wakaUrl;
+		authorizeUrl +=
+			client_id + "&redirect_uri=" + redirect_uri + "&scope=" + scopes;
+		axios
+			.post(authorizeUrl)
+			.then(function (response) {
+				console.log(response);
+			})
+			.catch(function (error) {
+				console.log(error);
+			});
+		/*window.open(authorizeUrl, "_blank");*/
 	};
 
 	return (
