@@ -1,6 +1,5 @@
 import { React } from "react";
-import Login from "./Login";
-import Logout from "./Logout";
+import Login from "./auth/Login";
 
 function Home() {
 	return (

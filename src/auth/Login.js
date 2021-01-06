@@ -1,18 +1,8 @@
 import React, { useState } from "react";
 import Form from "react-bootstrap/Form";
 import Button from "react-bootstrap/Button";
-import GoogleLogin from "react-google-login";
-
-const client_id =
-	"486612176112-pehebooofba34dg8spmaf9uq26g5eck5.apps.googleusercontent.com";
 
 function Login() {
-	const onSuccess = (res) => {
-		console.log("Success : " + res.profileObj);
-	};
-	const onFailure = (res) => {
-		console.log("Login Failed");
-	};
 	const [email, setEmail] = useState("");
 	const [password, setPassword] = useState("");
 
@@ -27,7 +17,7 @@ function Login() {
 		<div className="Login">
 			<Form onSubmit={handleSubmit}>
 				<Form.Group size="lg" controlId="email">
-					<h2>Login Page</h2>
+					<h2>Login</h2>
 					<Form.Label>Email</Form.Label>
 					<Form.Control
 						autoFocus
@@ -52,17 +42,7 @@ function Login() {
 				>
 					Login
 				</Button>
-				<div>
-					<GoogleLogin
-						clientId={client_id}
-						buttonText="Login"
-						onSuccess={onSuccess}
-						onFailure={onFailure}
-						cookiePolicy={"single_host_origin"}
-						style={{ marginTop: "100 px" }}
-						isSignedIn={true}
-					/>
-				</div>
+				<div></div>
 			</Form>
 		</div>
 	);

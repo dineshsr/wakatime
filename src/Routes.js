@@ -1,7 +1,7 @@
 import React from "react";
 import { BrowserRouter, Route, Switch } from "react-router-dom";
 import Home from "./Home";
-import Authorize from "./Authorize";
+import Signup from "./auth/SignUp";
 import "./styles/general.css";
 
 function Routes() {
@@ -9,7 +9,7 @@ function Routes() {
 		<BrowserRouter>
 			<Switch>
 				<Route path="/" exact component={Home}></Route>
-				<Route path="/authorize" exact component={Authorize}></Route>
+				<Route path="/signup" exact component={Signup}></Route>
 			</Switch>
 		</BrowserRouter>
 	);
